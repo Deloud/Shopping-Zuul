@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: zuul
+
+server:
+  port: 8880
+
+eureka:
+  instance:
+    instance-id: zuul
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka
+
+zuul:
+  ignoredServices: '*'
+  sensitive-headers:
+  routes:
+    product:
+      path: /product/**
+      serviceId: product
+      url: http://localhost:8088
+      strip-prefix: false
+
+    customer:
+      path: /user/**
+      serviceId: customer
+      url: http://localhost:8089
+      strip-prefix: false
+
+    cart:
+      path: /cart/**
+      serviceId: cart
+      url: http://localhost:8091
+      strip-prefix: false
