@@ -20,16 +20,20 @@ zuul:
       path: /product/**
       serviceId: product
       url: http://localhost:8088
-      strip-prefix: false
+
 
     customer:
       path: /user/**
       serviceId: customer
       url: http://localhost:8089
-      strip-prefix: false
+
 
     cart:
       path: /cart/**
       serviceId: cart
       url: http://localhost:8091
-      strip-prefix: false
+
+    order:
+      path: /order/**
+      serviceId: order
+      url: http://localhost:8092
